@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Route, Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-//Components
-import FrontHeader from './Header';
-import FrontFooter from './Footer';
-import Cart from './Cart';
-import ProductCard from '../../components/product-card';
 // Images
 import portada1 from '../../assets/img/banner1.webp';
 import portada2 from '../../assets/img/banner2.webp';
@@ -38,7 +33,7 @@ const Home = () => {
       }
       const res = await response.json();
       setCategoriesArray(res);
-      console.log(res);
+      //console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -79,14 +74,14 @@ const Home = () => {
         <a className="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
 
       </div>
-      <div class="uk-section uk-section-default">
-        <div class="uk-container">
+      <div className="uk-section uk-section-default">
+        <div className="uk-container">
 
           <h4>Bienvenido!</h4>
           <p>Encuentra todo lo que quieras en nuestra web</p>
-          <div class="uk-grid-match uk-child-width-1-2 uk-child-width-1-6@m" data-uk-grid>
-            {categoriesArray.map(item => (
-              <div>
+          <div className="uk-grid-match uk-child-width-1-2 uk-child-width-1-6@m" data-uk-grid>
+            {categoriesArray.map((item, key) => (
+              <div key={key}>
                 <Link to={`/productos/${item.categoryId}`}>
                   <div className="uk-card uk-card-body md-bg-indigo-900 md-color-white">
                     <div className="uk-text-center">

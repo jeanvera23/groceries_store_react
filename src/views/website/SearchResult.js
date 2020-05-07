@@ -138,17 +138,17 @@ const Products = ({ props }) => {
   }
   return (
     <div>
-      <div class="md-bg-white uk-hidden@m" data-uk-sticky="offset: 64">
+      <div className="md-bg-white uk-hidden@m" data-uk-sticky="offset: 64">
         <a className="uk-accordion-title" data-uk-toggle="target: #modal_categorias_search">Buscar Productos</a>
       </div>
       <div id="modal_categorias_search" data-uk-modal>
-        <div class="uk-modal-dialog uk-margin-auto-vertical">
-          <button class="uk-modal-close-default" type="button" data-uk-close></button>
-          <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Buscar Productos</h2>
+        <div className="uk-modal-dialog uk-margin-auto-vertical">
+          <button className="uk-modal-close-default" type="button" data-uk-close></button>
+          <div className="uk-modal-header">
+            <h2 className="uk-modal-title">Buscar Productos</h2>
           </div>
-          <div class="uk-modal-body">
-            <ul class="uk-list">
+          <div className="uk-modal-body">
+            <ul className="uk-list">
               {categoriesArray.length && categoriesArray.map(item => (
                 <li><a onClick={changeCategory(item.categoryId)}>{item.name}</a></li>
               ))}
@@ -160,9 +160,9 @@ const Products = ({ props }) => {
         <div className="uk-width-1-5@m uk-visible@m">
           <div className="uk-card uk-card-body md-bg-white">
             <h5>Nuestras Categorias</h5>
-            <ul class="uk-list">
-              {categoriesArray.length && categoriesArray.map(item => (
-                <li><Link to={`/productos/${item.categoryId}`}>{item.name}</Link></li>
+            <ul className="uk-list">
+              {categoriesArray.length && categoriesArray.map((item, key) => (
+                <li key={key}><Link to={`/productos/${item.categoryId}`}>{item.name}</Link></li>
               ))}
             </ul>
           </div>
@@ -174,15 +174,15 @@ const Products = ({ props }) => {
                 <h3 className="uk-text-left">Resultados de busqueda para: {value}</h3>
                 <div className="uk-grid-small uk-grid-match" data-uk-grid>
                   <div className='uk-width-1-1'>
-                    <div class="uk-card uk-card-default uk-card-body">
-                      <div class="uk-grid-small" data-uk-grid>
-                        <div class="uk-text-left uk-width-1-2@s">
+                    <div className="uk-card uk-card-default uk-card-body">
+                      <div className="uk-grid-small" data-uk-grid>
+                        <div className="uk-text-left uk-width-1-2@s">
                           <p><strong>{productsArray.length}</strong> productos encontrados</p>
                         </div>
-                        <div class="uk-text-right uk-width-1-2@s">
-                          <p class="uk-margin-remove uk-text-left">Ordenar por:</p>
+                        <div className="uk-text-right uk-width-1-2@s">
+                          <p className="uk-margin-remove uk-text-left">Ordenar por:</p>
                           <div className="md-input-wrapper md-input-no-label md-input-dense">
-                            <select class="md-input" onChange={orderBy} value={order}>
+                            <select className="md-input" onChange={orderBy} value={order}>
                               <option value="" disabled hidden selected></option>
                               <option value="AZ">A - Z (Nombre de producto)</option>
                               <option value="ZA">Z - A (Nombre de producto)</option>

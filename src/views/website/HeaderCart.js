@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // Images
 import logo from '../../assets/img/main_logo.png';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 import CartActions from '../../providers/cart/cart.actions'

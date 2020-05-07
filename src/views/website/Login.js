@@ -32,7 +32,7 @@ const Home = () => {
         "email": userCredentials.email,
         "password": userCredentials.password
       };
-      console.log(data);
+      //console.log(data);
       const button = event.target;
       button.innerHTML = 'Cargando...';
       button.disabled = true;
@@ -48,7 +48,6 @@ const Home = () => {
           if (response.status >= 500 && response.status < 600) {
             UIkit.notification('Error. Please try later.');
           }
-          console.log('test');
           button.innerHTML = 'Ingresar';
           button.disabled = false;
           return response.json();

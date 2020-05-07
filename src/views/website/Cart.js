@@ -40,8 +40,8 @@ const Cart = () => {
   }
   return (
     <div id="cart_container" data-uk-offcanvas="flip: true; overlay: true">
-      <div class="uk-offcanvas-bar md-bg-white uk-padding-small">
-        <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+      <div className="uk-offcanvas-bar md-bg-white uk-padding-small">
+        <button className="uk-offcanvas-close" type="button" data-uk-close></button>
         <h4 className="md-color-grey-900 uk-text-center">
           <i className='material-icons md-color-grey-900'>shopping_cart</i> Carrito de compras</h4>
         <div className="uk-grid-small uk-margin-bottom uk-text-center" data-uk-grid>
@@ -51,7 +51,7 @@ const Cart = () => {
                 <CartItem item={item} />
               ))}
               <div className="uk-width-1-1 uk-text-center">
-                <a onClick={deleteAll} class="md-btn md-btn-outlined md-btn-primary md-btn-wave-light uk-margin-right">Eliminar todo <i className="material-icons">delete</i></a>
+                <a onClick={deleteAll} className="md-btn md-btn-outlined md-btn-primary md-btn-wave-light uk-margin-right">Eliminar todo <i className="material-icons">delete</i></a>
               </div>
             </>
           ) : (
@@ -61,7 +61,7 @@ const Cart = () => {
             )
           }
           {/* <div className="uk-width-1-1">
-            <a class="md-btn md-btn-outlined md-btn-primary md-btn-wave-light uk-margin-right">Guardar como lista <i className="material-icons">add</i></a>
+            <a className="md-btn md-btn-outlined md-btn-primary md-btn-wave-light uk-margin-right">Guardar como lista <i className="material-icons">add</i></a>
           </div> */}
 
           <div>&nbsp;</div>
@@ -74,9 +74,9 @@ const Cart = () => {
                 </div>
                 <div className='uk-width-1-2 uk-text-right'>
                   {cart.cartItems.length ?
-                    <Link to='/checkout' class="md-btn md-btn-primary">Continuar</Link>
+                    <Link to='/checkout' className="md-btn md-btn-primary">Continuar</Link>
                     :
-                    <Link class="md-btn disabled">Continuar</Link>
+                    <a className="md-btn disabled">Continuar</a>
                   }
                 </div>
               </div>

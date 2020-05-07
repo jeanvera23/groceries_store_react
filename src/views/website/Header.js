@@ -4,9 +4,6 @@ import { useHistory, Link } from 'react-router-dom';
 // Images
 import logo from '../../assets/img/main_logo.png';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-
 import CartActions from '../../providers/cart/cart.actions'
 import UserActions from '../../providers/user/user.actions'
 import UIkit from 'uikit';
@@ -63,7 +60,7 @@ const FrontHeader = () => {
             <div className="uk-visible@m">
               <div className="md-input-wrapper md-input-no-label md-input-wrapper-with-trailing-icon md-input-dense md-input-wrapper-shaped md-input-wrapper-outlined">
                 {searchValue != "" &&
-                  <span onClick={() => history.push("/results/" + searchValue)} class="md-input-icon touch-cursor"><i class="material-icons ">search</i></span>
+                  <span onClick={() => history.push("/results/" + searchValue)} className="md-input-icon touch-cursor"><i className="material-icons ">search</i></span>
                 }
                 <input onKeyPress={handleKeyPress} type="text" placeholder="Busca productos" className="md-input" onChange={handleChange} value={searchValue} />
               </div>
@@ -74,18 +71,18 @@ const FrontHeader = () => {
             {user.currentUser ?
               <>
                 <Link to='/account/orders'><i className='material-icons md-color-white md-icon uk-hidden@m uk-margin-right'>person</i></Link>
-                <Link to='/account/orders' class="md-btn md-btn-primary md-btn-outlined md-color-white uk-margin-right uk-visible@m"> <i className='material-icons md-color-white'>person</i> Mi cuenta</Link>
+                <Link to='/account/orders' className="md-btn md-btn-primary md-btn-outlined md-color-white uk-margin-right uk-visible@m"> <i className='material-icons md-color-white'>person</i> Mi cuenta</Link>
               </>
               :
               <>
                 <Link to='/login'><i className='material-icons md-color-white md-icon uk-hidden@m uk-margin-right'>person</i></Link>
-                <Link to='/login' class="md-btn md-btn-outlined md-btn-primary md-color-white md-btn-wave-light uk-margin-right uk-visible@m">Login / Registro </Link>
+                <Link to='/login' className="md-btn md-btn-outlined md-btn-primary md-color-white md-btn-wave-light uk-margin-right uk-visible@m">Login / Registro </Link>
               </>
             }
             <a className="cart-message-icon">
               <i onClick={toggleCart} className='material-icons md-color-white md-icon uk-hidden@m uk-margin-right'>shopping_cart</i>
               {cart.cartItems.length > 0 &&
-                <span class="uk-badge uk-badge-material">{cart.cartItems.length}</span>
+                <span className="uk-badge uk-badge-material">{cart.cartItems.length}</span>
               }
             </a>
             <div className='md-bg-white cart-container uk-margin-right uk-visible@m'>
@@ -99,9 +96,9 @@ const FrontHeader = () => {
               </div>
               <div className="cart-button">
                 {cart.cartItems.length ?
-                  <Link to='/checkout' class="md-btn md-btn-primary">Continuar</Link>
+                  <Link to='/checkout' className="md-btn md-btn-primary">Continuar</Link>
                   :
-                  <Link class="md-btn disabled">Continuar</Link>
+                  <a className="md-btn disabled">Continuar</a>
                 }
               </div>
             </div>
@@ -109,16 +106,16 @@ const FrontHeader = () => {
         </nav>
       </div>
       <div id="modal_search" data-uk-modal>
-        <div class="uk-modal-dialog uk-margin-auto-vertical">
-          <button class="uk-modal-close-default" type="button" data-uk-close></button>
-          <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Buscar:</h2>
+        <div className="uk-modal-dialog uk-margin-auto-vertical">
+          <button className="uk-modal-close-default" type="button" data-uk-close></button>
+          <div className="uk-modal-header">
+            <h2 className="uk-modal-title">Buscar:</h2>
           </div>
-          <div class="uk-modal-body">
-            <div class="md-bg-white uk-hidden@m" data-uk-sticky="offset: 64">
+          <div className="uk-modal-body">
+            <div className="md-bg-white uk-hidden@m" data-uk-sticky="offset: 64">
               <div className="md-input-wrapper md-input-no-label md-input-wrapper-with-trailing-icon md-input-dense md-input-wrapper-shaped md-input-wrapper-outlined">
                 {searchValue != "" &&
-                  <span onClick={searchModal} class="md-input-icon touch-cursor"><i class="material-icons ">search</i></span>
+                  <span onClick={searchModal} className="md-input-icon touch-cursor"><i className="material-icons ">search</i></span>
                 }
                 <input onKeyPress={handleKeyPress} type="text" placeholder="Busca productos" className="md-input" onChange={handleChange} value={searchValue} />
               </div>

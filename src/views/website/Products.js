@@ -28,9 +28,8 @@ const Products = ({ props }) => {
   let history = useHistory();
   async function getCategories() {
     try {
-      var modal = UIkit.modal.dialog('<div class=\'uk-modal-body\'><p>Cargando productos ...</p></div>', { 'bgClose': false, 'escClose': false });
+      var modal = UIkit.modal.dialog('<div className=\'uk-modal-body\'><p>Cargando productos ...</p></div>', { 'bgClose': false, 'escClose': false });
 
-      console.log("getCategories " + categoryId);
       const response = await fetch(`${settings.connectionString}/api/category_read.php`, {
         method: 'POST'
       });
@@ -45,25 +44,23 @@ const Products = ({ props }) => {
       }
       const res = await response.json();
       const selectedCategoryTmp = res.find(item => item.categoryId == categoryId)
-      console.log("selectedCategoryTmp");
-      console.log(selectedCategoryTmp);
+      /* console.log("selectedCategoryTmp");
+      console.log(selectedCategoryTmp); */
       modal.hide();
       setCategoriesArray(res);
       setSelectedCategory(selectedCategoryTmp);
-      console.log(res);
+      //console.log(res);
     } catch (error) {
       console.log(error);
     }
   }
   async function getProducts() {
-    var modal = UIkit.modal.dialog('<div class=\'uk-modal-body\'><p>Cargando productos ...</p></div>', { 'bgClose': false, 'escClose': false });
+    var modal = UIkit.modal.dialog('<div className=\'uk-modal-body\'><p>Cargando productos ...</p></div>', { 'bgClose': false, 'escClose': false });
 
     try {
       const req = {
         "categoryId": categoryId
       };
-      console.log("getSchedules");
-      console.log(req);
       const response = await fetch(`${settings.connectionString}/api/category_product_read_by_category.php`, {
         method: 'POST',
         body: JSON.stringify(req)
@@ -84,7 +81,6 @@ const Products = ({ props }) => {
       }
 
       setProductsArray(res);
-      console.log(res);
       modal.hide();
     } catch (error) {
       console.log(error);
@@ -127,7 +123,6 @@ const Products = ({ props }) => {
         break;
     }
     setOrder(value);
-    console.log(value);
   }
   function compareValues(key, order = 'asc') {
     return function innerSort(a, b) {
@@ -151,20 +146,19 @@ const Products = ({ props }) => {
       );
     };
   }
-  console.log(productsArray);
   return (
     <div >
-      <div class="md-bg-white uk-hidden@m" data-uk-sticky="offset: 64">
+      <div className="md-bg-white uk-hidden@m" data-uk-sticky="offset: 64">
         <a className="uk-accordion-title" data-uk-toggle="target: #modal_categorias">Buscar Productos</a>
       </div>
       <div id="modal_categorias" data-uk-modal>
-        <div class="uk-modal-dialog uk-margin-auto-vertical">
-          <button class="uk-modal-close-default" type="button" data-uk-close></button>
-          <div class="uk-modal-header">
-            <h2 class="uk-modal-title">Buscar Productos</h2>
+        <div className="uk-modal-dialog uk-margin-auto-vertical">
+          <button className="uk-modal-close-default" type="button" data-uk-close></button>
+          <div className="uk-modal-header">
+            <h2 className="uk-modal-title">Buscar Productos</h2>
           </div>
-          <div class="uk-modal-body">
-            <ul class="uk-list">
+          <div className="uk-modal-body">
+            <ul className="uk-list">
               {categoriesArray.length && categoriesArray.map(item => (
                 <li><a onClick={changeCategory(item.categoryId)}>{item.name}</a></li>
               ))}
@@ -176,7 +170,7 @@ const Products = ({ props }) => {
         <div className="uk-width-1-5@m uk-visible@m">
           <div className="uk-card uk-card-body md-bg-white">
             <h5>Nuestras Categorias</h5>
-            <ul class="uk-list">
+            <ul className="uk-list">
               {categoriesArray.length && categoriesArray.map(item => (
                 selectedCategory.categoryId == item.categoryId ?
                   <li><Link to={`./${item.categoryId}`}> {"> " + item.name}</Link></li>
@@ -191,15 +185,15 @@ const Products = ({ props }) => {
             <h3 className="uk-text-left">{selectedCategory && selectedCategory.name}</h3>
             <div className="uk-grid-small uk-grid-match" data-uk-grid>
               <div className='uk-width-1-1'>
-                <div class="uk-card uk-card-default uk-card-body">
-                  <div class="uk-grid-small" data-uk-grid>
-                    <div class="uk-text-left uk-width-1-2@s">
+                <div className="uk-card uk-card-default uk-card-body">
+                  <div className="uk-grid-small" data-uk-grid>
+                    <div className="uk-text-left uk-width-1-2@s">
                       <p><strong>{productsArray.length}</strong> productos encontrados</p>
                     </div>
-                    <div class="uk-text-right uk-width-1-2@s">
-                      <p class="uk-margin-remove uk-text-left">Ordenar por:</p>
+                    <div className="uk-text-right uk-width-1-2@s">
+                      <p className="uk-margin-remove uk-text-left">Ordenar por:</p>
                       <div className="md-input-wrapper md-input-no-label md-input-dense">
-                        <select class="md-input" onChange={orderBy} value={order}>
+                        <select className="md-input" onChange={orderBy} value={order}>
                           <option value="" disabled hidden selected></option>
                           <option value="AZ">A - Z (Nombre de producto)</option>
                           <option value="ZA">Z - A (Nombre de producto)</option>
