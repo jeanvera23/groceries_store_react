@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 
 import UserActions from '../../providers/user/user.actions';
+
+import settings from '../../settings.js';
+
 const GoogleMapComponent = () => {
     const user = UserActions();
     const defaultMapOptions = {
@@ -30,7 +33,7 @@ const GoogleMapComponent = () => {
     return (
         <LoadScript
             id="script-loader"
-            googleMapsApiKey="AIzaSyDmAverZKJXVk7-v0VH6EcgZ2pbfaG0vdQ"
+            googleMapsApiKey={settings.googleAPIKEY}
         >
             <GoogleMap
                 id='example-map'
