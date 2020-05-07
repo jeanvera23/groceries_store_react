@@ -111,7 +111,7 @@ const Home = () => {
               <a><h4 className="md-color-indigo-900">Ver todo</h4></a>
             </div>
             <div className="uk-width-1-1">
-              <img src={cat_abarrotes} alt="" />
+              <Link to='/productos/4'><img src={cat_abarrotes} alt="" /></Link>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ const Home = () => {
               <a><h4 className="md-color-indigo-900">Ver todo</h4></a>
             </div>
             <div className="uk-width-1-1">
-              <img src={cat_cuidado_personal} alt="" />
+              <Link to='/productos/5'><img src={cat_cuidado_personal} alt="" /></Link>
             </div>
           </div>
         </div>
@@ -141,16 +141,16 @@ const Home = () => {
               <a><h4 className="md-color-indigo-900">Ver todo</h4></a>
             </div>
             <div className="uk-width-1-1">
-              <img src={cat_cuidado_ropa} alt="" />
+              <Link to='/productos/6'><img src={cat_cuidado_ropa} alt="" /></Link>
             </div>
             <div className="uk-width-1-2 uk-width-1-3@s">
-              <img src={cat_limpieza_banio} alt="" />
+              <Link to='/productos/6'><img src={cat_limpieza_banio} alt="" /></Link>
             </div>
             <div className="uk-width-1-2 uk-width-1-3@s">
-              <img src={cat_cuidado_hogar} alt="" />
+              <Link to='/productos/6'> <img src={cat_cuidado_hogar} alt="" /></Link>
             </div>
             <div className="uk-width-1-2 uk-width-1-3@s">
-              <img src={cat_cocina} alt="" />
+              <Link to='/productos/6'><img src={cat_cocina} alt="" /></Link>
             </div>
           </div>
         </div>
@@ -165,10 +165,10 @@ const Home = () => {
               <a><h4 className="md-color-indigo-900">Ver todo</h4></a>
             </div>
             <div className="uk-width-1-2@s">
-              <img src={cat_licores} alt="" />
+              <Link to='/productos/7'><img src={cat_licores} alt="" /></Link>
             </div>
             <div className="uk-width-1-2@s">
-              <img src={cat_piqueos} alt="" />
+              <Link to='/productos/7'> <img src={cat_piqueos} alt="" /></Link>
             </div>
           </div>
         </div>

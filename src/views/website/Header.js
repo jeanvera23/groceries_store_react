@@ -79,7 +79,7 @@ const FrontHeader = () => {
               :
               <>
                 <Link to='/login'><i className='material-icons md-color-white md-icon uk-hidden@m uk-margin-right'>person</i></Link>
-                <Link to='/login' class="md-btn md-btn-outlined md-color-white md-btn-wave-light uk-margin-right uk-visible@m">Login / Registro </Link>
+                <Link to='/login' class="md-btn md-btn-outlined md-btn-primary md-color-white md-btn-wave-light uk-margin-right uk-visible@m">Login / Registro </Link>
               </>
             }
             <a className="cart-message-icon">

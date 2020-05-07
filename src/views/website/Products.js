@@ -15,6 +15,9 @@ import UserActions from '../../providers/user/user.actions';
 
 import settings from '../../settings.js';
 
+//Assets
+import LoadingGIF from "../../assets/img/loading.gif";
+
 const Products = ({ props }) => {
   let { categoryId } = useParams();
   const [productsArray, setProductsArray] = useState([]);
@@ -25,21 +28,26 @@ const Products = ({ props }) => {
   let history = useHistory();
   async function getCategories() {
     try {
+      var modal = UIkit.modal.dialog('<div class=\'uk-modal-body\'><p>Cargando productos ...</p></div>', { 'bgClose': false, 'escClose': false });
+
       console.log("getCategories " + categoryId);
       const response = await fetch(`${settings.connectionString}/api/category_read.php`, {
         method: 'POST'
       });
       if (response.status >= 400 && response.status < 500) {
         UIkit.notification('Information error.');
+        modal.hide();
         throw "Error" + response.status;
       }
       if (response.status >= 500 && response.status < 600) {
+        modal.hide();
         UIkit.notification('Error. Please try later.');
       }
       const res = await response.json();
       const selectedCategoryTmp = res.find(item => item.categoryId == categoryId)
       console.log("selectedCategoryTmp");
       console.log(selectedCategoryTmp);
+      modal.hide();
       setCategoriesArray(res);
       setSelectedCategory(selectedCategoryTmp);
       console.log(res);
@@ -48,6 +56,8 @@ const Products = ({ props }) => {
     }
   }
   async function getProducts() {
+    var modal = UIkit.modal.dialog('<div class=\'uk-modal-body\'><p>Cargando productos ...</p></div>', { 'bgClose': false, 'escClose': false });
+
     try {
       const req = {
         "categoryId": categoryId
@@ -59,10 +69,12 @@ const Products = ({ props }) => {
         body: JSON.stringify(req)
       });
       if (response.status >= 400 && response.status < 500) {
+        modal.hide();
         UIkit.notification('Information error.');
         throw "Error" + response.status;
       }
       if (response.status >= 500 && response.status < 600) {
+        modal.hide();
         UIkit.notification('Error. Please try later.');
       }
       const res = await response.json();
@@ -73,8 +85,10 @@ const Products = ({ props }) => {
 
       setProductsArray(res);
       console.log(res);
+      modal.hide();
     } catch (error) {
       console.log(error);
+      modal.hide();
     }
   }
   useEffect(() => {
@@ -164,7 +178,10 @@ const Products = ({ props }) => {
             <h5>Nuestras Categorias</h5>
             <ul class="uk-list">
               {categoriesArray.length && categoriesArray.map(item => (
-                <li><Link to={`./${item.categoryId}`}>{item.name}</Link></li>
+                selectedCategory.categoryId == item.categoryId ?
+                  <li><Link to={`./${item.categoryId}`}> {"> " + item.name}</Link></li>
+                  :
+                  <li><Link to={`./${item.categoryId}`}>{item.name}</Link></li>
               ))}
             </ul>
           </div>

@@ -58,7 +58,8 @@ const Home = () => {
           return response.json();
         })
         .then(data => {
-          alert("Registro completo. Revise su correo para ingresar");
+          /* alert("Registro completo. Revise su correo para ingresar"); */
+          alert("Registro completo. Puede acceder");
           history.push('./login');
         }).catch(data => {
           UIkit.notification('Error. Please try later.');
@@ -117,7 +118,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="uk-width-1-2@m">
-                <div className="md-input-wrapper uk-margin-small">
+                <div className="md-input-wrapper md-input-filled uk-margin-small">
                   <label>Fecha de Cumpleaños:</label>
                   <input name="dob" type="date" className="md-input" onChange={handleChange} required value={dob} />
                   <span className="md-input-bar"></span>
@@ -125,7 +126,7 @@ const Home = () => {
               </div>
               <div className="uk-width-1-2@m">
                 <div className="md-input-wrapper uk-margin-small">
-                  <label>Telefono de Contacto:</label>
+                  <label>Teléfono de Contacto:</label>
                   <input name="phone" type="text" className="md-input" onChange={handleChange} required value={phone} />
                   <span className="md-input-bar"></span>
                 </div>
